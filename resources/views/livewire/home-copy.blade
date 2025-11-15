@@ -1,0 +1,30 @@
+<div>
+    <div class="container py-5">
+        <div class="row">
+            @foreach ($exams as $exam)
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $exam->name }}</h5>
+                            <p class="card-text">{{ $exam->description }}</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="card-text text-success">{{ $exam->duration }} menit</p>
+                                <p class="card-text text-danger">{{ $exam->examSettings->sum('question_count') }} soal</p>
+                            </div>
+
+                            <button wire:click="joinExam({{ $exam->id }})" class="btn btn-primary w-100"
+                                wire:loading.attr="disabled">
+                                <span wire:loading.remove>Join Exam</span>
+                                <span wire:loading>
+                                    <span class="spinner-border spinner-border-sm" role="status"
+                                        aria-hidden="true"></span>
+                                </span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>

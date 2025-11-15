@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <livewire:styles />
+</head>
+
+<body class="bg-gradient-to-b from-indigo-500 to-purple-500">
+    <div class="min-h-screen flex items-center justify-center">
+        {{ $slot }}
+    </div>
+    <livewire:scripts />
+</body>
+
+</html>
